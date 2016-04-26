@@ -1,0 +1,50 @@
+* + * {
+  margin-top: $base-rhythm;
+}
+
+.article {
+  margin: 0 auto;
+  max-width: 730px;
+  padding: 0 15px;
+
+  p:first-of-type {
+    color: lighten(black, 50%);
+    font-size: 1.3em;
+  }
+
+  h1 {
+    font-size: 50px;
+    letter-spacing: -0.02em;
+    line-height: 2 * $base-rhythm;
+    text-align: center;
+    margin-top: $base-rhythm;
+  }
+
+  pre {
+    padding: 5px 10px;
+    margin: 0;
+
+    // Fix vertical rhythm
+    margin-top: $base-rhythm - 7px;
+    margin-bottom: - 7px;
+
+    font-size: 0.8em;
+
+    background-color: #fafafa;
+    border: 0 solid #f0f0f0;
+    border-width: 1px 0;
+
+    @include media(930px) {
+      margin-left: -100px;
+      margin-right: -100px;
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+  }
+
+  blockquote {
+    font-style: italic;
+    color: darkgray;
+    padding: 0 40px;
+  }
+}
