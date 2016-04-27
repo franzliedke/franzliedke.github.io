@@ -4,6 +4,7 @@
         "symfony/debug": "^3.0"
     },
     "scripts": {
-        "build": "jigsaw build"
+        "build": "jigsaw build",
+        "deploy": "GIT_DEPLOY_DIR=build_production GIT_DEPLOY_BRANCH=master scripts/deploy.sh"
     }
 }
