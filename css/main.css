@@ -1,0 +1,55 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700);
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 29px, lightgray 29px, lightgray 30px);
+  line-height: 30px;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 20px;
+  margin: 0; }
+
+* + * {
+  margin-top: 30px; }
+
+.article {
+  margin: 0 auto;
+  max-width: 730px;
+  padding: 0 15px; }
+  .article p:first-of-type {
+    color: gray;
+    font-size: 1.3em; }
+  .article h1 {
+    font-size: 50px;
+    letter-spacing: -0.02em;
+    line-height: 60px;
+    text-align: center;
+    margin-top: 30px; }
+  .article pre {
+    padding: 5px 10px;
+    margin: 0;
+    margin-top: 23px;
+    margin-bottom: -7px;
+    font-size: 0.8em;
+    background-color: #fafafa;
+    border: 0 solid #f0f0f0;
+    border-width: 1px 0; }
+    @media screen and (min-width: 930px) {
+      .article pre {
+        margin-left: -100px;
+        margin-right: -100px;
+        padding-left: 100px;
+        padding-right: 100px; } }
+  .article blockquote {
+    font-style: italic;
+    color: darkgray;
+    padding: 0 40px; }
+
+/*# sourceMappingURL=main.css.map */
