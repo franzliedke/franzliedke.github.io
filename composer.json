@@ -4,9 +4,9 @@
         "symfony/debug": "^3.0"
     },
     "scripts": {
-        "build": "jigsaw build",
+        "build": "jigsaw build --pretty=false",
         "watch": "gulp && gulp watch",
-        "build-production": "gulp && jigsaw build --env=production",
+        "build-production": "gulp && jigsaw build --env=production --pretty=false",
         "deploy-production": "GIT_DEPLOY_DIR=build_production GIT_DEPLOY_BRANCH=master scripts/deploy.sh",
         "deploy": [
             "@build-production",

@@ -12,7 +12,7 @@ elixir(function(mix) {
         .sass('main.scss', 'source/css', {
             includePaths: bourbon.includePaths.concat(neat.includePaths)
         })
-        .exec('vendor/bin/jigsaw build', ['./source/**/*', '!./source/_assets/**/*'])
+        .exec('vendor/bin/jigsaw build --pretty=false', ['./source/**/*', '!./source/_assets/**/*'])
         .browserSync({
             server: { baseDir: 'build_local' },
             proxy: null,
