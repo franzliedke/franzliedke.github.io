@@ -7,6 +7,25 @@
         <link rel="stylesheet" href="/css/main.css">
     </head>
     <body>
-        @yield('body')
+        <header>
+            <h1>Franz Liedke</h1>
+
+            <nav>
+                <ul>
+                    <li><a href="#">About me</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                </ul>
+            </nav>
+
+            <p class="about">
+                Master of Science, IT-Systems Engineering<br />
+                Web developer, Laravel core contributor<br />
+                Open-source enthusiast, Flarum &amp; FluxBB
+            </p>
+        </header>
+
+        <main>
+            @yield('body')
+        </main>
     </body>
 </html>

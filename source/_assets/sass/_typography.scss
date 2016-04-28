@@ -1,10 +1,10 @@
-* + * {
-  margin-top: $base-rhythm;
+main {
+  * + * {
+    margin-top: $base-rhythm;
+  }
 }
 
 .article {
-  margin: $base-rhythm auto;
-  max-width: 730px;
   padding: 0 15px;
 
   h1 {
@@ -35,16 +35,17 @@
     margin-bottom: - 7px;
 
     font-size: 0.8em;
+    color: $code-color;
 
     background-color: #fafafa;
     border: 0 solid #f0f0f0;
     border-width: 1px 0;
 
-    @include media(930px) {
+    @include media(1120px) {
       margin-left: -100px;
       margin-right: -100px;
-      padding-left: 100px;
-      padding-right: 100px;
+      padding-left: 110px;
+      padding-right: 110px;
     }
   }
 

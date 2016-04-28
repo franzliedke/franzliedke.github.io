@@ -9,5 +9,60 @@ body {
   line-height: $base-rhythm;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: $base-size;
+  color: $text-color;
   margin: 0;
+}
+
+header {
+  background-color: $header-bg-color;
+  color: $header-text-color;
+  padding: $base-rhythm .5 * $base-rhythm;
+
+  .about {
+    display: none;
+  }
+
+  @include media(800px) {
+    position: fixed;
+    width: 270px;
+
+    .about {
+      display: block;
+    }
+  }
+
+  & > * + * {
+    margin-top: $base-rhythm;
+  }
+
+  a {
+    &, &:link, &:visited {
+      display: block;
+      padding-left: 10px;
+      margin-left: -10px;
+      margin-right: -.5 * $base-rhythm;
+      color: $header-text-color;
+      text-decoration: none;
+    }
+    
+    &:hover {
+      color: $header-bg-color;
+      background-color: $header-text-color;
+    }
+  }
+
+  nav {
+    ul {
+      list-style: none;
+    }
+  }
+}
+
+main {
+  margin: $base-rhythm auto;
+  max-width: 730px;
+
+  @include media(800px) {
+    margin-left: 285px;
+  }
 }
