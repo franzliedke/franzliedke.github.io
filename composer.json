@@ -5,6 +5,12 @@
     },
     "scripts": {
         "build": "jigsaw build",
-        "deploy": "GIT_DEPLOY_DIR=build_production GIT_DEPLOY_BRANCH=master scripts/deploy.sh"
+        "watch": "gulp && gulp watch",
+        "build-production": "gulp && jigsaw build --env=production",
+        "deploy-production": "GIT_DEPLOY_DIR=build_production GIT_DEPLOY_BRANCH=master scripts/deploy.sh",
+        "deploy": [
+            "@build-production",
+            "@deploy-production"
+        ]
     }
 }
