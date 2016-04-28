@@ -4,7 +4,10 @@
 }
 
 body {
-  background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent $base-rhythm - 1px, lightgray $base-rhythm - 1px, lightgray $base-rhythm);
+  background-color: $very-light;
+
+  // Uncomment this to show helper lines for vertical rhythm
+  //background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent $base-rhythm - 1px, lightgray $base-rhythm - 1px, lightgray $base-rhythm);
 
   line-height: $base-rhythm;
   font-family: 'Roboto Condensed', sans-serif;
@@ -47,7 +50,7 @@ header {
     
     &:hover {
       color: $header-bg-color;
-      background-color: $header-text-color;
+      background-color: $body-bg-color;
     }
   }
 
