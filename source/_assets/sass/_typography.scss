@@ -7,17 +7,23 @@
   max-width: 730px;
   padding: 0 15px;
 
-  p:first-of-type {
-    color: lighten(black, 50%);
-    font-size: 1.3em;
-  }
-
   h1 {
     font-size: 50px;
     letter-spacing: -0.02em;
     line-height: 2 * $base-rhythm;
     text-align: center;
     margin-top: $base-rhythm;
+  }
+
+  .article-date {
+    display: block;
+    text-align: center;
+    letter-spacing: 0.15em;
+  }
+
+  p:first-of-type {
+    color: lighten(black, 50%);
+    font-size: 1.3em;
   }
 
   pre {

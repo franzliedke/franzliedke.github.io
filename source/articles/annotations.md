@@ -2,6 +2,7 @@
 extends: _layouts.blog
 section: content
 title: "Annotations – show me the benefits!"
+date: "2014-10-21"
 ---
 
 Last week, a discussion was raging in the Laravel community.

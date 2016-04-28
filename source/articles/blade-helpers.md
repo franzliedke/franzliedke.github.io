@@ -2,6 +2,7 @@
 extends: _layouts.blog
 section: content
 title: "Laravel 4: Blade helper functions"
+date: "2014-07-31"
 ---
 
 Laravel’s template engine Blade is already very powerful and fairly extensible.
