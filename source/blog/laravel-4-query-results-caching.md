@@ -1,7 +1,7 @@
 ---
 extends: _layouts.blog
 section: content
-title: "Laravel 4 Gems: Query results caching"
+title: "Laravel 4: Query results caching"
 date: "2013-05-29"
 ---
 

@@ -1,7 +1,7 @@
 ---
 extends: _layouts.blog
 section: content
-title: "Laravel 4 Gems: Maintenance mode"
+title: "Laravel 4: Maintenance mode"
 date: "2013-05-31"
 ---
 

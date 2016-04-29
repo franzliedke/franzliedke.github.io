@@ -1,7 +1,7 @@
 ---
 extends: _layouts.blog
 section: content
-title: "Laravel 4 Gems: Model query scopes"
+title: "Laravel 4: Model query scopes"
 date: "2013-05-30"
 ---
 

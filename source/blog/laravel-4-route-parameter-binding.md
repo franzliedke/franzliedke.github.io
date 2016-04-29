@@ -1,7 +1,7 @@
 ---
 extends: _layouts.blog
 section: content
-title: "Laravel 4 Gems: Route parameter binding"
+title: "Laravel 4: Route parameter binding"
 date: "2013-05-27"
 ---
 
