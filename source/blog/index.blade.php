@@ -29,10 +29,14 @@ $articles = collect($articles)->map(function ($file) {
 
 @section('body')
 
-    <h2>Blog articles</h2>
+    <h1>Blog articles</h1>
     @foreach ($articles as $article)
-        <h3>{{ $article['title'] }}</h3>
-        <time>{{ $article['date'] }}</time>
+        <article class="link">
+            <time>{{ $article['date'] }}</time>
+            <h3>
+                <a href="/blog/{{ $article['filename'] }}.html">{{ $article['title'] }}</a>
+            </h3>
+        </article>
     @endforeach
 
 @endsection

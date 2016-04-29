@@ -4,6 +4,12 @@ main {
   }
 }
 
+article.link {
+  * {
+    margin-top: 0;
+  }
+}
+
 article {
   padding: 0 15px;
 
