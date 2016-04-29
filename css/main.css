@@ -11,7 +11,6 @@ html {
 
 body {
   background-color: #f6f6f6;
-  background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 29px, lightgray 29px, lightgray 30px);
   line-height: 30px;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 20px;
