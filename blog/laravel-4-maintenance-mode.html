@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+        <header>
+            <h1>Franz Liedke</h1>
+
+            <nav>
+                <ul>
+                    <li><a href="#">About me</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                </ul>
+            </nav>
+
+            <p class="about">
+                Master of Science, IT-Systems Engineering<br />
+                Web developer, Laravel core contributor<br />
+                Open-source enthusiast, Flarum &amp; FluxBB
+            </p>
+        </header>
+
+        <main>
+            
+    <article>
+        <h1>Laravel 4: Maintenance mode</h1>
+        <time class="article-date" datetime="2013-05-31T12:00">2013-05-31</time>
+        <p>A short tip to finish up the week.</p>
+<p>When making changes to your site such as running migrations to update your database, you might want to make sure that it is not accessible from the outside in order to avoid showing intermediate errors.
+Laravel 4 adds a very simple, but useful feature for such situations: <strong>maintenance mode</strong>.</p>
+<p>Whenever you want to shut down access from the outside for your site, just run this command from the command line:</p>
+<pre><code class="language-sh">php artisan down</code></pre>
+<p>Try accessing your site with your browser now.
+You will see a message stating “Be right back!”.
+To disable maintenance mode, just run this command:</p>
+<pre><code class="language-sh">php artisan up</code></pre>
+<p>Of course, you might want to display more information or explain the reasons when your site is in maintenance mode.
+Open <code>app/start/global.php</code> and find the <code>App::down()</code> handler.
+You can replace the default string with a custom message.
+For more advanced pages, you can even render a view:</p>
+<pre><code class="language-php">App::down(function()
+{
+    return Response::view('maintenance', array(), 503);
+});</code></pre>
+<p>This will render the view called “maintenance” in your views directory.
+Since we don’t have any custom data, we pass an empty array as second parameter.
+The 503 stands for the “Service unavailable” header from the HTTP specification.</p>
+    </article>
+
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+         * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT:
+         * https://disqus.com/admin/universalcode/#configuration-variables
+         */
+        /*
+         var disqus_config = function () {
+         this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+         this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+         };
+         */
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+
+            s.src = '//develophp.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+        </main>
+    </body>
+</html>

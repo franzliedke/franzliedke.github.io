@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+        <header>
+            <h1>Franz Liedke</h1>
+
+            <nav>
+                <ul>
+                    <li><a href="#">About me</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                </ul>
+            </nav>
+
+            <p class="about">
+                Master of Science, IT-Systems Engineering<br />
+                Web developer, Laravel core contributor<br />
+                Open-source enthusiast, Flarum &amp; FluxBB
+            </p>
+        </header>
+
+        <main>
+            
+    <article>
+        <h1>Laravel 4: Model query scopes</h1>
+        <time class="article-date" datetime="2013-05-30T12:00">2013-05-30</time>
+        <p>Query scopes are a wonderful way to make queries with Eloquent even more readable.
+They also help you encapsulate your actual database logic inside your model class and avoid repetitive code.</p>
+<p>If you have used Yii or Ruby on Rails, you might already know this concept.
+Well, Laravel 4 now has it, too.
+(And with a little bit of pride I might add: it was my idea!)</p>
+<p>Imagine (my favorite use case) a forum software.
+A pretty common query for all “closed” (or resolved) topics might then read like this:</p>
+<pre><code class="language-php">Topic::where('closed', '=', 1)-&gt;get();</code></pre>
+<p>We directly check for the <code>closed</code> field in the database table to have the value <code>1</code>.
+This type of query for closed topics might actually happen rather frequently in different places across the forum.
+Now imagine a situation in the future where you have to change the structure of your database (for whatever reason).
+For example, you might mark closed topics with the value <code>0</code> in the <code>opened</code> column instead: you will have to change every single one of those queries.</p>
+<p>You guessed it: query scopes to the rescue! We want our query to look like this:</p>
+<pre><code class="language-php">Topic::closed()-&gt;get();</code></pre>
+<p>Now, of course Laravel can not know how this scope called <code>closed</code> should be resolved in the query, so we have to tell it.
+Add this method to your topic model class:</p>
+<pre><code class="language-php">public function scopeClosed($query)
+{
+    // Note that the second parameter can be omitted
+    // if we're checking for equality.
+    return $query-&gt;where('closed', 1);
+}</code></pre>
+<p>As you can see, the scope method accepts a query object as parameter.
+In the method body, we can manipulate that query and then have to return it.</p>
+<h3>Combining scopes</h3>
+<p>Where scopes really shine is when you combine them.
+In a forum with a lot of topics, you probably want to show only the 25 most recent ones quite often.</p>
+<p>So, you might decide to create another scope that orders the topics by post date and applies a LIMIT clause to the query:</p>
+<pre><code class="language-php">public function scopeLatest($query)
+{
+    // We're ordering by post date and apply
+    // a LIMIT clause to the query.
+    return $query-&gt;orderBy('post_date', 'desc')-&gt;take(25);
+}</code></pre>
+<p>To get only the latest closed topics, you can now combine both scopes like this:</p>
+<pre><code class="language-php">Topic::latest()-&gt;closed()-&gt;get();</code></pre>
+<p>Marvel at the readability.
+Code and text are almost equal.</p>
+<p>Less, but official, info can be found in the <a href="http://laravel.com/docs/eloquent#query-scopes">documentation</a>.</p>
+    </article>
+
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+         * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT:
+         * https://disqus.com/admin/universalcode/#configuration-variables
+         */
+        /*
+         var disqus_config = function () {
+         this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+         this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+         };
+         */
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+
+            s.src = '//develophp.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+        </main>
+    </body>
+</html>

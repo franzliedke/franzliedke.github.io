@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+        <header>
+            <h1>Franz Liedke</h1>
+
+            <nav>
+                <ul>
+                    <li><a href="#">About me</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                </ul>
+            </nav>
+
+            <p class="about">
+                Master of Science, IT-Systems Engineering<br />
+                Web developer, Laravel core contributor<br />
+                Open-source enthusiast, Flarum &amp; FluxBB
+            </p>
+        </header>
+
+        <main>
+            
+    <article>
+        <h1>Laravel 4: Route parameter binding</h1>
+        <time class="article-date" datetime="2013-05-27T12:00">2013-05-27</time>
+        <p>The final release of Laravel 4.0 is right around the corner.
+In fact, it’s tomorrow that the new version will see the light of the world.</p>
+<p>So much has changed and improved in this new version that it is hard to keep track of all the good new things.
+Thus, I decided to start a little series on some hidden gems of the framework: let us dive into some of the lesser-known features that can really make daily development even more pleasant – if you know they exist!</p>
+<p>In your controllers, you might find yourself writing code like this pretty often:</p>
+<pre><code class="language-php">public function view($id)
+{
+    $model = MyModel::find($id);
+    if (is_null($model))
+    {
+        App::abort(404);
+    }
+    // Render view etc.
+}</code></pre>
+<p>Now, this can become quite repetitive and boring.
+Thankfully, Taylor added a new feature in Laravel 4 that allows you to bind the respective model to your parameter during routing.
+Behold, route parameter binding:</p>
+<pre><code class="language-php">Route::bind('mymodel', function($value, $route) {
+    return MyModel::findOrFail($value);
+});</code></pre>
+<p>This makes sure the closure will be executed every time you name a parameter “mymodel” in your routes.
+Note the use of the <code>findOrFail()</code> method.
+This takes care of throwing an exception in case the model can not be found.
+To actually use this feature, you need to adapt your routes, too:</p>
+<pre><code class="language-php">Route::get('models/{mymodel}', 'MyController@view');</code></pre>
+<p>That also means that your controller method will now be passed a Model instance instead of the parameter value:</p>
+<pre><code class="language-php">public function view(MyModel $model)
+{
+    // Render view etc.
+}</code></pre>
+<p>And last but not least, for this classic model use-case, the framework offers another shortcut that fetches a model for the given class name by ID:</p>
+<pre><code class="language-php">Route::model('mymodel', 'MyModel');</code></pre>
+<p>This does exactly what we did earlier with <code>Route::bind()</code>, except we don’t have to write the code ourselves.
+Isn’t that great?
+For more information, refer to the <a href="http://laravel.com/docs/routing#route-model-binding" title="Laravel documentation on route model binding">documentation</a>.</p>
+    </article>
+
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+         * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT:
+         * https://disqus.com/admin/universalcode/#configuration-variables
+         */
+        /*
+         var disqus_config = function () {
+         this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+         this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+         };
+         */
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+
+            s.src = '//develophp.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+        </main>
+    </body>
+</html>
