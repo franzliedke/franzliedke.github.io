@@ -23,7 +23,7 @@ $articles = collect($articles)->map(function ($file) {
     }
 
     return $articleInfo;
-});
+})->sortByDesc('date');
 
 ?>
 
