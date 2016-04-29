@@ -14,7 +14,7 @@ $articles = collect($articles)->map(function ($file) {
     $lines = explode("\n", trim($contents));
 
     $articleInfo = [
-        'filename' => basename($file, '*.md')
+        'filename' => basename($file, '.md')
     ];
 
     foreach ($lines as $line) {
