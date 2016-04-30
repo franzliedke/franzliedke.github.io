@@ -4,7 +4,22 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <link rel="stylesheet" href="/css/main.css">
+
+<?php
+
+// Because we do cache busting on production, we collect all CSS files here, no matter the filename
+$cssFiles = collect(glob('source/css/*.css'))
+    ->map('basename')
+    ->map(function ($filename) {
+        return "/css/$filename";
+    });
+
+?>
+
+        @foreach ($cssFiles as $file)
+            <link rel="stylesheet" href="{{ $file }}">
+        @endforeach
+
     </head>
     <body>
         <header>

@@ -20,5 +20,6 @@ elixir(function(mix) {
             server: { baseDir: 'build_local' },
             proxy: null,
             files: [ 'build_local/**/*' ]
-        });
+        })
+        .version('css/main.css', 'source/');
 });
