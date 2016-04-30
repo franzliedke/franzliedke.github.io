@@ -23,7 +23,9 @@ $cssFiles = collect(glob('source/css/*.css'))
     </head>
     <body>
         <header>
-            <h1>Franz Liedke</h1>
+            <h1>
+                <a href="/">Franz Liedke</a>
+            </h1>
 
             <nav>
                 <ul>
