@@ -16,6 +16,10 @@ main {
   }
 }
 
+a:focus {
+  outline: 1px dotted currentcolor;
+}
+
 article.link {
   * {
     margin-top: 0;
