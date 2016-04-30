@@ -27,7 +27,7 @@ $cssFiles = collect(glob('source/css/*.css'))
 
             <nav>
                 <ul>
-                    <li><a href="#">About me</a></li>
+                    <li><a href="/about.html">About me</a></li>
                     <li><a href="/blog">Blog</a></li>
                 </ul>
             </nav>

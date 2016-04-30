@@ -2,6 +2,18 @@ main {
   * + * {
     margin-top: $base-rhythm;
   }
+
+  a {
+    &, &:link, &:visited {
+      color: darken($text-color, 20%);
+      text-decoration: none;
+      border-bottom: 4px solid currentcolor;
+    }
+
+    &:hover {
+      padding-bottom: 2px;
+    }
+  }
 }
 
 article.link {
@@ -30,18 +42,6 @@ article {
   p:first-of-type {
     color: lighten(black, 50%);
     font-size: 1.2em;
-  }
-
-  a {
-    &, &:link, &:visited {
-      color: darken($text-color, 20%);
-      text-decoration: none;
-      border-bottom: 4px solid currentcolor;
-    }
-
-    &:hover {
-      padding-bottom: 2px;
-    }
   }
 
   pre {
