@@ -10,7 +10,10 @@ elixir.config.publicPath = 'source';
 elixir(function(mix) {
     mix
         .sass('main.scss', 'source/css', {
-            includePaths: bourbon.includePaths.concat(neat.includePaths)
+            includePaths: [].concat(
+                bourbon.includePaths,
+                neat.includePaths
+            )
         })
         .exec('vendor/bin/jigsaw build --pretty=false', ['./source/**/*', '!./source/_assets/**/*'])
         .browserSync({
