@@ -3,6 +3,11 @@
         "tightenco/jigsaw": "^0.5.0",
         "symfony/debug": "^3.0"
     },
+    "autoload": {
+        "files": [
+            "functions.php"
+        ]
+    },
     "scripts": {
         "build": "jigsaw build --pretty=false",
         "watch": "gulp && gulp watch",
