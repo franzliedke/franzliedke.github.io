@@ -1,6 +1,6 @@
 {
     "require": {
-        "tightenco/jigsaw": "^0.5.0",
+        "tightenco/jigsaw": "^0.6.4",
         "symfony/debug": "^3.0"
     },
     "autoload": {
