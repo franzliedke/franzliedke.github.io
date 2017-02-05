@@ -5,10 +5,16 @@
     <h1>Hi, I'm Franz Liedke.</h1>
     <h2>Software Developer, Open-Source Enthusiast.</h2>
 
-    <p>...</p>
+    <ul class="social-links">
+        <li class="twitter">
+            <a href="https://twitter.com/franzliedke">franzliedke</a>
+        </li>
+        <li class="github">
+            <a href="https://github.com/franzliedke">franzliedke</a>
+        </li>
+    </ul>
 
-    <a href="#">Twitter</a>
-    <a href="#">GitHub</a>
+    <p>&nbsp;</p>
 
     <h2>Latest articles</h2>
 

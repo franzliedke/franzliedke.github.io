@@ -1,0 +1,25 @@
+// Twitter icon by Elegant Themes (http://www.flaticon.com/authors/elegant-themes)
+// GitHub icon by SimpleIcon (http://www.flaticon.com)
+// Licensed by Creative Commons BY 3.0 (http://creativecommons.org/licenses/by/3.0/)
+
+.social-links {
+  list-style: none;
+
+  & > * {
+    display: inline-block;
+    margin-right: 30px;
+    padding-left: 35px;
+    background-repeat: no-repeat;
+    background-position: center left;
+  }
+
+  .github {
+    background-image: url(../img/github.svg);
+    background-size: 35px;
+  }
+
+  .twitter {
+    background-image: url(../img/twitter.svg);
+    background-size: 28px;
+  }
+}
