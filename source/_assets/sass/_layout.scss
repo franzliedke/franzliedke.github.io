@@ -81,6 +81,7 @@ header {
 
 main {
   margin: $base-rhythm auto;
+  padding: $base-rhythm .5 * $base-rhythm;
   max-width: 730px;
 
   @include media(800px) {
