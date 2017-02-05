@@ -2,7 +2,7 @@
 extends: _layouts.blog
 section: content
 title: "Laravel 4: Eloquent attribute mutators"
-date: "2012-06-12"
+date: "2012-11-06"
 ---
 
 Custom getters and setters for Eloquent model attributes have existed for a while in Laravel.
