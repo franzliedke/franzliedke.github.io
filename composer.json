@@ -11,7 +11,7 @@
     "scripts": {
         "build": "jigsaw build --pretty=false",
         "watch": "gulp && gulp watch",
-        "build-production": "gulp --production && jigsaw build --env=production --pretty=false",
+        "build-production": "gulp --production && jigsaw build --pretty=false production",
         "deploy-production": "GIT_DEPLOY_DIR=build_production GIT_DEPLOY_BRANCH=master scripts/deploy.sh",
         "deploy": [
             "@build-production",
