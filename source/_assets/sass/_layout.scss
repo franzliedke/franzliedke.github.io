@@ -32,7 +32,7 @@ header {
 
   @include media(800px) {
     position: fixed;
-    width: 270px;
+    width: $sidebar-width;
 
     .about {
       display: block;
@@ -84,6 +84,6 @@ main {
   max-width: 730px;
 
   @include media(800px) {
-    margin-left: 285px;
+    margin-left: $sidebar-width + 15px;
   }
 }
