@@ -4,6 +4,7 @@
     "gulp": "^3.8.8"
   },
   "dependencies": {
+    "bourbon": "^4.0",
     "bourbon-neat": "^1.7.4",
     "laravel-elixir": "^4.2.0"
   }
