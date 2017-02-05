@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+
+                    <link rel="stylesheet" href="/css/main-3b16b85795.css">
+                    <link rel="stylesheet" href="/css/main-f56cb86acb.css">
+        
+    </head>
+    <body>
+        <header>
+            <h1>
+                <a href="/">Franz Liedke</a>
+            </h1>
+
+            <nav>
+                <ul>
+                    <li><a href="/about.html">About me</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                </ul>
+            </nav>
+
+            <p class="about">
+                Master of Science, IT-Systems Engineering<br />
+                Web developer, Laravel core contributor<br />
+                Open-source enthusiast, Flarum &amp; FluxBB
+            </p>
+        </header>
+
+        <main>
+            
+    <article>
+        <h1>Can’t use function return value in write context</h1>
+        <time class="article-date" datetime="2012-06-07T12:00">2012-06-07</time>
+        <p>PHP likes to give this error message when using function return values directly with the <code>empty</code> construct.</p>
+<pre><code class="language-php">if (empty(some_function())
+{
+    // ... some code here
+}</code></pre>
+<p>This is due to how <code>empty</code> is implemented in PHP.</p>
+<p>The obvious solution is to store the value in a temporary variable first and then applying <code>empty</code>:</p>
+<pre><code>$value = some_function();
+if (empty($value))
+{
+    // ... some code here
+}</code></pre>
+<p>There is a shorter way, though.</p>
+<p>Depending on whether you use <code>empty</code> or <code>!empty</code>, the shortest way to use the function return value directly is this:</p>
+<pre><code class="language-php">// Replacing empty
+if (!some_function())
+{
+    // ... some code here
+}
+
+// Replacing !empty
+if ((bool) some_function())
+{
+    // ... some code here
+}</code></pre>
+<p>This solution makes clever use of <a href="http://php.net/manual/en/language.types.boolean.php#language.types.boolean.casting" title="Explanation of PHP's type casting to booleans">PHP's type casting to booleans</a> - and keeps the code short.</p>
+<p><strong>NOTE:</strong> This not only works for arrays, but also for strings.</p>
+    </article>
+
+        </main>
+    </body>
+</html>

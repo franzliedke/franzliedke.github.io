@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+
+                    <link rel="stylesheet" href="/css/main-3b16b85795.css">
+                    <link rel="stylesheet" href="/css/main-f56cb86acb.css">
+        
+    </head>
+    <body>
+        <header>
+            <h1>
+                <a href="/">Franz Liedke</a>
+            </h1>
+
+            <nav>
+                <ul>
+                    <li><a href="/about.html">About me</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                </ul>
+            </nav>
+
+            <p class="about">
+                Master of Science, IT-Systems Engineering<br />
+                Web developer, Laravel core contributor<br />
+                Open-source enthusiast, Flarum &amp; FluxBB
+            </p>
+        </header>
+
+        <main>
+            
+    <article>
+        <h1>PHP&#039;s Memcached extension and write failures</h1>
+        <time class="article-date" datetime="2012-02-15T12:00">2012-02-15</time>
+        <p>After two hours of debugging (which is no fun on a remote continuous integration server) what turned out to be not a bug, but rather a pretty horrible design decision, as one might call it, I feel I should share this.
+Maybe it will save somebody else the hassle of trying to read Memcached logs and find out what on earth went wrong.</p>
+<p>I was working on FluxBB’s new cache library which has adapters for quite a few different backends – one of them Memcached, one of two PHP bindings for, well, Memcached, the memory caching system.
+The second PHP extension, Memcache, worked well, but for some reason our unit testing suite gave us a <code>Memcached::RES_WRITE_FAILURE</code> status message when trying to write entries to the data store.
+That error code <a href="http://php.net/manual/en/memcached.constants.php" title="Explanation of constants in PHP's Memcached extension">means</a> “Failed to write network data”.</p>
+<p>Well, that was surprising.
+Empty error logs, no error when connecting to the server.</p>
+<p>Which is very annoying because in the end, it turned out that Memcached won’t work with “localhost” as server host (which worked with the Memcache extension), but rather expects “127.0.0.1”.
+Go figure, I say.</p>
+<p>To sum it up, let’s close this with what somebody commented on IRC:</p>
+<blockquote>
+<p>Most of developers develop their libraries for the unicorns’ and rainbows’ world.
+When things never fail, nothing goes wrong and thus there is no need to worry about error messages.</p>
+</blockquote>
+    </article>
+
+        </main>
+    </body>
+</html>
