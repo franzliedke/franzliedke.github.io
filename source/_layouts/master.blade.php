@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
 
+        @yield('head_meta')
+
 <?php
 
 // Because we do cache busting on production, we collect all CSS files here, no matter the filename

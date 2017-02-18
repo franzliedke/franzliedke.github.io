@@ -1,5 +1,12 @@
 @extends('_layouts.master')
 
+@section('head_meta')
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@franzliedke" />
+    <meta name="twitter:title" content="{{ $title }}" />
+    <meta name="twitter:description" content="{{ $summary }}" />
+@endsection
+
 @section('body')
 
     <article>
