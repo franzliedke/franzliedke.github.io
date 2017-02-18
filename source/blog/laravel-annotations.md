@@ -2,6 +2,7 @@
 extends: _layouts.blog
 section: content
 title: "Annotations – show me the benefits!"
+summary: "Are routing annotations for Laravel really a good idea?"
 date: "2014-10-21"
 ---
 

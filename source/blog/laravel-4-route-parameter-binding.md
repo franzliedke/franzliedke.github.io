@@ -2,6 +2,7 @@
 extends: _layouts.blog
 section: content
 title: "Laravel 4: Route parameter binding"
+summary: "A useful feature that lets you DRY out your controllers."
 date: "2013-05-27"
 ---
 

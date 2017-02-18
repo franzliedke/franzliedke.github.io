@@ -2,6 +2,7 @@
 extends: _layouts.blog
 section: content
 title: "Laravel 4: Blade helper functions"
+summary: "A little trick for exposing helper functions to Laravel's Blade template engine."
 date: "2014-07-31"
 ---
 

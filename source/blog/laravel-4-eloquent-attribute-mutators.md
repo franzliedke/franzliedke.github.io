@@ -2,6 +2,7 @@
 extends: _layouts.blog
 section: content
 title: "Laravel 4: Eloquent attribute mutators"
+summary: "Learn how you can compute additional attributes on your Eloquent models, without storing them in the database."
 date: "2012-11-06"
 ---
 

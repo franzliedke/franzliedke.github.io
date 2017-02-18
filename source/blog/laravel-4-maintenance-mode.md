@@ -2,6 +2,7 @@
 extends: _layouts.blog
 section: content
 title: "Laravel 4: Maintenance mode"
+summary: "This new feature lets you show a nice maintenance page when deploying or working on your website."
 date: "2013-05-31"
 ---
 

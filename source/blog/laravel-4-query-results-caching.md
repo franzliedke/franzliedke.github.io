@@ -2,6 +2,7 @@
 extends: _layouts.blog
 section: content
 title: "Laravel 4: Query results caching"
+summary: "With Laravel's database layer, results of database queries can easily be stored and retrieved from cache."
 date: "2013-05-29"
 ---
 

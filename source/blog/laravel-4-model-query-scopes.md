@@ -2,6 +2,7 @@
 extends: _layouts.blog
 section: content
 title: "Laravel 4: Model query scopes"
+summary: "How to wrap Eloquent query constraints in named helpers for encapsulation and reuse."
 date: "2013-05-30"
 ---
 

@@ -2,6 +2,7 @@
 extends: _layouts.blog
 section: content
 title: "Integrate FluxBB 1.4 with a WordPress site"
+summary: "Learn how to integrate a FluxBB forum into your WordPress site's design."
 date: "2010-05-23"
 ---
 

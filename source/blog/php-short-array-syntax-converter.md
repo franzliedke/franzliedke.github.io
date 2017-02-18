@@ -2,6 +2,7 @@
 extends: _layouts.blog
 section: content
 title: "A PHP Short Array Syntax Converter"
+summary: "Use it from the console for converting your code to the new PHP 5.4 array syntax."
 date: "2012-12-28"
 ---
 

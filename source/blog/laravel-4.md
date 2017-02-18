@@ -2,6 +2,7 @@
 extends: _layouts.blog
 section: content
 title: "Laravel 4: The day is here"
+summary: "Celebrating the release of Laravel 4.0."
 date: "2013-05-28"
 ---
 

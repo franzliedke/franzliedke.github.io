@@ -9,6 +9,7 @@
             <h3>
                 <a href="/blog/{{ $article['filename'] }}.html">{{ $article['title'] }}</a>
             </h3>
+            <p class="article-summary">{{ $article['summary'] }}</p>
         </article>
     @endforeach
 

@@ -2,6 +2,7 @@
 extends: _layouts.blog
 section: content
 title: "Can’t use function return value in write context"
+summary: "Understanding and avoiding this error message."
 date: "2012-06-07"
 ---
 

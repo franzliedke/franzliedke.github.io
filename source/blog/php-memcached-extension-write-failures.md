@@ -2,6 +2,7 @@
 extends: _layouts.blog
 section: content
 title: "PHP's Memcached extension and write failures"
+summary: "A tricky-to-find, but easy-to-apply workaround."
 date: "2012-02-15"
 ---
 

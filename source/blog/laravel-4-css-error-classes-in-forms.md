@@ -2,6 +2,7 @@
 extends: _layouts.blog
 section: content
 title: "Laravel 4: CSS error classes in forms"
+summary: "How to quickly highlight form fields when they have errors."
 date: "2012-09-15"
 ---
 
