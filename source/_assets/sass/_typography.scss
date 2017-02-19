@@ -37,6 +37,10 @@ article {
     margin-top: $base-rhythm;
   }
 
+  .article-title {
+    padding: .5 * $base-rhythm 0;
+  }
+
   .article-date {
     display: block;
     text-align: center;

@@ -20,10 +20,10 @@
 
     @foreach (getArticles()->sortByDesc('date')->take(3) as $article)
         <article class="link">
-            <time>{{ $article['date'] }}</time>
-            <h3>
+            <h3 class="article-title">
                 <a href="/blog/{{ $article['filename'] }}.html">{{ $article['title'] }}</a>
             </h3>
+            <time>{{ $article['date'] }}</time>
             <p class="article-summary">{{ $article['summary'] }}</p>
         </article>
     @endforeach
