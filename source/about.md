@@ -20,6 +20,7 @@ Since I discovered Laravel, I have been an enthusiastic learner, used it for qui
 My enthusiasm for forum software was born from my involvement in the [FluxBB][fluxbb] development team.
 FluxBB is a free, open-source forum software that strives to be fast, light-weight and easy to use while only offering the features that are essential for running a forum.
 I found FluxBB when I was literally searching for a forum that was easy to install and just worked.
+FluxBB is still maintained - it is considered mostly feature-complete, but I am currently working on modernizing the aging PHP codebase.
 
 I like to program in PHP, but have lots of experience with Ruby and JavaScript, too.
 
