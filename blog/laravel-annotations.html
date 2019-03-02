@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=347f5ba1a3cf5f7ea32f">
+    </head>
+    <body>
+        <header>
+            <h1>
+                <a href="/">Franz Liedke</a>
+            </h1>
+
+            <nav>
+                <ul>
+                    <li><a href="/about">About me</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                </ul>
+            </nav>
+
+            <p class="about">
+                Master of Science, IT-Systems Engineering<br />
+                Web developer, Laravel core contributor<br />
+                Open-source enthusiast, Flarum &amp; FluxBB
+            </p>
+        </header>
+
+        <main>
+            
+    <article>
+        <h1>Annotations – show me the benefits!</h1>
+        <time class="article-date" datetime="2014-10-21T12:00">2014-10-21</time>
+        <p>Last week, a discussion was raging in the Laravel community.
+Taylor recently introduced the usage of annotations throughout the framework.
+Developers can now, for example, declare their routes inside controllers.</p>
+<pre><code class="language-php">class TreesController {
+    /**
+     * @Get("/trees/{id}", as="tree")
+     */
+    public function view($id)
+    {
+        // Retrieve tree and return
+    }
+}</code></pre>
+<p>Annotations are not a core feature of the PHP programming language.
+This has started a lot of <a href="https://laracasts.com/discuss/channels/general-discussion/route-annotation-in-laravel-5" title="Laracasts discussion on route annotations">controversy</a> and heated discussion in the community.</p>
+<p>I am not trying to add to the fire, but I do want to state my objections against annotations.</p>
+<p>Before I start, let us not forget the benefits.
+I understand the argument that annotations can speed up development.
+Thus, I see it as another feature that enables rapid application development.
+This is useful when quickly building prototypes or creating small APIs.</p>
+<p>In the discussions that I have read, and in the answers I got when asking in the developer channel, this was the only real benefit I could find.
+And it is a good one.
+Laravel has proven before that one of its main goals is the simplification of common tasks.</p>
+<p>In my opinion, though, the disadvantages outweigh the benefit in this case.</p>
+<h3>Disadvantages</h3>
+<p>Embedding routes inside controllers <strong>breaks the separation of concerns</strong>.
+Even though the two are related, they still represent two different concepts and responsibilities.
+Controllers are responsible for the application flow.
+This usually means retrieving data from the domain layer and passing it on to views.
+Routes map HTTP requests to controller actions.
+This is not necessarily a one-to-one mapping.</p>
+<p>The single responsibility principle states: Classes should have only one reason to change.
+This principle is clearly broken in this case.
+Controllers are suddenly affected by changes in a site’s URL structure.
+We can also turn this principle around.
+In a perfect world, I only want to look at one place when I change one aspect of a project.
+In this case, for changing URLs, this would be my routes file.
+With annotations, my <strong>routes are <a href="http://en.wikipedia.org/wiki/Aspect-oriented_programming#Motivation_and_basic_concepts" title="Scattering in the context of Aspect-oriented programming">scattered</a></strong> all over my project.</p>
+<p>Then, of course, <strong>annotations are comments</strong>.
+This is not a question of purity.
+Even though the PHP interpreter <a href="http://php.net/manual/en/reflectionfunctionabstract.getdoccomment.php" title="PHP documentation on function doc blocks">parses doc blocks</a>, they are still comment blocks.
+And never, ever should my code’s behavior change when I change or remove comments.</p>
+<p>I would argue that annotations are also <strong>harder to understand</strong>.
+Apart from the routing annotation, they do not add any new features.
+In Laravel 4, you could include or exclude filters to be run before or after controller actions.
+Within a line of code.
+This feature was removed in Laravel 5 and replaced by middleware annotations.</p>
+<blockquote>
+<p>As far as I understand, one of the goals in changing the controllers in version 5 was to make them less framework-dependent.
+Thus, the ability to include or exclude filters from within special methods of your controller had to go.
+And yet, they were reintroduced in the form of these annotations.</p>
+</blockquote>
+<p>In my opinion, one of the biggest strengths of Laravel has always been its immense flexibility.
+I could dive into the source code, and because everything was just PHP, it was easy to follow the trail of method calls.
+With annotations, not so much.
+When looking at a controller, where do you even start if you want to understand their implementation?</p>
+<h3>Conclusion</h3>
+<p>At the end of the day, I want my code to be maintainable in the long run.
+This should always be on our minds when we make decisions about architecture.
+For me, annotations do not help with maintainability.
+As mentioned before, they break the separation of concerns.
+Magical things happen because of code comments.
+And my code becomes harder to read for other developers.</p>
+<p>From my experience, a little bit of explicitness can go a long way toward maintainability.
+With all my routes explicitly declared in one place, I get a nice overview and a single place to change routes.
+With all of them scattered across my controllers, maintainability suffers.</p>
+<p>That said, I don’t want to bash the introduction of annotations.
+But I do not understand why they are advertised in the way they are.
+I can see how they could speed up development for small apps, but is that enough?</p>
+<p>Of course I don’t have to use annotations.
+But would you agree that annotations in this form may harm long-term maintainability?
+If so, you might also agree that they should not be promoted as best practices.</p>
+<p>So what do you think?
+Do you hate annotations or love the new feature?
+And if so, can you explain the benefits?
+Are the aforementioned disadvantages relevant to you?</p>
+        <div id="disqus_thread"></div>
+<script>
+    (function() {
+        var d = document, s = d.createElement('script');
+
+        s.src = '//develophp.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>    </article>
+
+        </main>
+    </body>
+</html>

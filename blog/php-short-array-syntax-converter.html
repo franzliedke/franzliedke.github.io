@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=347f5ba1a3cf5f7ea32f">
+    </head>
+    <body>
+        <header>
+            <h1>
+                <a href="/">Franz Liedke</a>
+            </h1>
+
+            <nav>
+                <ul>
+                    <li><a href="/about">About me</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                </ul>
+            </nav>
+
+            <p class="about">
+                Master of Science, IT-Systems Engineering<br />
+                Web developer, Laravel core contributor<br />
+                Open-source enthusiast, Flarum &amp; FluxBB
+            </p>
+        </header>
+
+        <main>
+            
+    <article>
+        <h1>A PHP Short Array Syntax Converter</h1>
+        <time class="article-date" datetime="2012-12-28T12:00">2012-12-28</time>
+        <p>In his <a href="http://phptownhall.com/blog/2012/12/04/episode-2-php-5.5/">PHP Town Hall podcast</a>, Phil Sturgeon mentioned that it would be nice to have an automatic converter for the new <a href="https://wiki.php.net/rfc/shortsyntaxforarrays">short-hand PHP array syntax</a> that was added in PHP 5.4.
+I agreed, but not that it would be hard to create one.
+Making use of Symfony’s nice Console package and PHP’s very own <a href="http://en.wikipedia.org/wiki/Lexical_analysis" title="Lexical analysis">tokenizer</a>, it was fairly easy to create.</p>
+<p>In fact, the only real issue I faced was making sure that array typehints weren’t removed (as the token parser doesn’t make a difference between array typehints and array definitions).
+Maybe I have just missed something…</p>
+<p>Anyway, you can find the tool <a href="https://github.com/franzliedke/php-array-shortener">here on GitHub</a>.
+Improvements welcome.</p>
+        <div id="disqus_thread"></div>
+<script>
+    (function() {
+        var d = document, s = d.createElement('script');
+
+        s.src = '//develophp.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>    </article>
+
+        </main>
+    </body>
+</html>

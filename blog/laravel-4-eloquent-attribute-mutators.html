@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=347f5ba1a3cf5f7ea32f">
+    </head>
+    <body>
+        <header>
+            <h1>
+                <a href="/">Franz Liedke</a>
+            </h1>
+
+            <nav>
+                <ul>
+                    <li><a href="/about">About me</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                </ul>
+            </nav>
+
+            <p class="about">
+                Master of Science, IT-Systems Engineering<br />
+                Web developer, Laravel core contributor<br />
+                Open-source enthusiast, Flarum &amp; FluxBB
+            </p>
+        </header>
+
+        <main>
+            
+    <article>
+        <h1>Laravel 4: Eloquent attribute mutators</h1>
+        <time class="article-date" datetime="2012-11-06T12:00">2012-11-06</time>
+        <p>Custom getters and setters for Eloquent model attributes have existed for a while in Laravel.
+They allow you to manipulate your attributes when storing or retrieving them.</p>
+<p>The canonical example is saving a user’s password: for security reasons, you want to store only a hash of your password in the database – so you write a custom setter that automatically hashes any password passed to the user object.
+Your application won’t have to worry about the implementation details of hashing your password and there’s no way to forget about it.
+And there’s lots of room for improvements: for example, you could also extend the function to send a confirmation email with the password when generating it for the first time.</p>
+<p>In the upcoming Laravel 4 release, these custom getters and setters will work a little differently, though.</p>
+<p>First of all, they are now called <strong>mutators</strong>.
+Why not.</p>
+<p>Also, as Laravel 4 adheres to the PSR-0 standard, the mutators’ method names will now be “properly” (we’ll argue about that another time) camel-cased.
+So, if you have an attribute called “user_password”, the appropriate setter mutator would be called <code>setUserPasswordAttribute()</code>.
+Once more, some fancy method calling magic behind the scenes.</p>
+<p>With Eloquent working all its magic behind the scenes, a password setter might look like this:</p>
+<pre><code class="language-php">public function setPasswordAttribute($value)
+{
+    $this-&gt;attributes['password'] = Hash::make($value);
+}</code></pre>
+<p>Now go forth and mutate!</p>
+<p><strong>UPDATE (2/21/2013):</strong>
+At some point, this functionality was changed.
+I updated the article to reflect the new behavior.</p>
+        <div id="disqus_thread"></div>
+<script>
+    (function() {
+        var d = document, s = d.createElement('script');
+
+        s.src = '//develophp.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>    </article>
+
+        </main>
+    </body>
+</html>

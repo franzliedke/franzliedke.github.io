@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=347f5ba1a3cf5f7ea32f">
+    </head>
+    <body>
+        <header>
+            <h1>
+                <a href="/">Franz Liedke</a>
+            </h1>
+
+            <nav>
+                <ul>
+                    <li><a href="/about">About me</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                </ul>
+            </nav>
+
+            <p class="about">
+                Master of Science, IT-Systems Engineering<br />
+                Web developer, Laravel core contributor<br />
+                Open-source enthusiast, Flarum &amp; FluxBB
+            </p>
+        </header>
+
+        <main>
+            
+    <article>
+        <h1>Laravel 4: Blade helper functions</h1>
+        <time class="article-date" datetime="2014-07-31T12:00">2014-07-31</time>
+        <p>Laravel’s template engine Blade is already very powerful and fairly extensible.
+Sometimes you may need special helper functions to simplify your template code.
+There is currently no “official” way to extend Blade with those.
+Other template engines, such as Twig, offer such a feature.</p>
+<p>You could, of course, use global functions as a workaround.
+These would, however, be true to their name and clutter the global namespace.
+If you want to make sure that these functions are only available in the views, you might want to try this approach.</p>
+<pre><code class="language-php">View::share('human_size', function($bytes) {
+    $units = ['B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB'];
+    for ($i = 0; $bytes &gt; 1024; $i++) {
+        $bytes /= 1024;
+    }
+    return round($bytes, 2).' '.$units[$i];
+});</code></pre>
+<p>In your Blade views, you can then use this simple function call to convert a number into a human-readable size:</p>
+<pre><code class="language-php">{{ $human_size(123456789) }}</code></pre>
+<p>This should return “117.74 MiB”.
+Note the dollar sign before the function call.
+This is due to the nature of Blade, which turns everything you pass into View::share() into variables.
+Since in this case we’re passing a closure, it can just be called like a regular function.</p>
+<p>Happy templating!</p>
+        <div id="disqus_thread"></div>
+<script>
+    (function() {
+        var d = document, s = d.createElement('script');
+
+        s.src = '//develophp.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>    </article>
+
+        </main>
+    </body>
+</html>
