@@ -27,9 +27,9 @@ action "Install Composer dependencies" {
 }
 
 action "Build static pages" {
-  uses = "pxgamer/composer-action@master"
-  args = "build-production"
+  uses = "franzliedke/gh-action-php@master"
   needs = ["Install Composer dependencies"]
+  runs = "php7.3 vendor/bin/jigsaw build production"
 }
 
 action "Deploy to GitHub Pages" {
