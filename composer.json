@@ -1,22 +1,11 @@
 {
     "require": {
-        "tightenco/jigsaw": "^0.6.4",
-        "symfony/debug": "^3.0"
-    },
-    "autoload": {
-        "files": [
-            "functions.php"
-        ]
+        "tightenco/jigsaw": "^1.0"
     },
     "scripts": {
-        "build": "jigsaw build --pretty=false",
-        "watch": "gulp && gulp watch",
-        "build-production": "gulp --production && jigsaw build --pretty=false production",
-        "deploy-production": "GIT_DEPLOY_DIR=build_production GIT_DEPLOY_BRANCH=master scripts/deploy.sh",
-        "deploy": [
-            "@build-production",
-            "@deploy-production"
-        ]
+        "build": "jigsaw build",
+        "watch": "npm run watch",
+        "build-production": "npm run prod && jigsaw build production"
     },
     "config": {
         "process-timeout": 0

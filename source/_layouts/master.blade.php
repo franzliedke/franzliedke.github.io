@@ -4,24 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-        @yield('head_meta')
-
-<?php
-
-// Because we do cache busting on production, we collect all CSS files here, no matter the filename
-$cssFiles = collect(glob('source/css/*.css'))
-    ->map('basename')
-    ->map(function ($filename) {
-        return "/css/$filename";
-    });
-
-?>
-
-        @foreach ($cssFiles as $file)
-            <link rel="stylesheet" href="{{ $file }}">
-        @endforeach
-
+        <link rel="stylesheet" href="{{ mix('css/main.css', 'assets/build') }}">
     </head>
     <body>
         <header>
@@ -31,7 +14,7 @@ $cssFiles = collect(glob('source/css/*.css'))
 
             <nav>
                 <ul>
-                    <li><a href="/about.html">About me</a></li>
+                    <li><a href="/about">About me</a></li>
                     <li><a href="/blog">Blog</a></li>
                 </ul>
             </nav>

@@ -18,13 +18,13 @@
 
     <h2>Latest articles</h2>
 
-    @foreach (getArticles()->sortByDesc('date')->take(3) as $article)
+    @foreach ($posts->take(3) as $post)
         <article class="link">
             <h3 class="article-title">
-                <a href="/blog/{{ $article['filename'] }}.html">{{ $article['title'] }}</a>
+                <a href="{{ $post->getUrl() }}">{{ $post->title }}</a>
             </h3>
-            <time>{{ $article['date'] }}</time>
-            <p class="article-summary">{{ $article['summary'] }}</p>
+            <time>{{ $post->date }}</time>
+            <p class="article-summary">{{ $post->summary }}</p>
         </article>
     @endforeach
 
