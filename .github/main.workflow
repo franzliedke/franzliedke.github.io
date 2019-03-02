@@ -29,7 +29,7 @@ action "Install Composer dependencies" {
 action "Build static pages" {
   uses = "franzliedke/gh-action-php@master"
   needs = ["Install Composer dependencies"]
-  runs = "php7.3 vendor/bin/jigsaw build production"
+  runs = "php7.3 vendor/bin/jigsaw build --pretty=false production"
 }
 
 action "Deploy to GitHub Pages" {
