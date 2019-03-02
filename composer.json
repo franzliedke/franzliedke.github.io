@@ -17,5 +17,8 @@
             "@build-production",
             "@deploy-production"
         ]
+    },
+    "config": {
+        "process-timeout": 0
     }
 }
