@@ -6,23 +6,18 @@ on:
   workflow_dispatch:
 
 jobs:
-  asset_deps:
-    name: Install asset dependencies
+  build:
+    name: Build static page
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
       with:
         node-version: '16'
-    - run: |
+    - name: Install asset dependencies
+      run: |
         npm ci
         npm run production
-
-  php_deps:
-    name: Install PHP dependencies
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
     - uses: shivammathur/setup-php@v2
       with:
         php-version: '7.3'
@@ -33,14 +28,13 @@ jobs:
         key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
         restore-keys: |
           ${{ runner.os }}-php-
-    - run: composer install --prefer-dist --no-progress
-  
-  build:
-    name: Build static pages
-    runs-on: ubuntu-latest
-    needs: [asset_deps, php_deps]
-    steps:
+    - name: Install PHP dependencies
+      run: composer install --prefer-dist --no-progress
     - run: php vendor/bin/jigsaw build --pretty=false production
+    - name: Publish static files
+      uses: actions/upload-pages-artifact@v1
+      with:
+        path: build_production/
 
   deploy:
     name: Deploy to GitHub Pages
