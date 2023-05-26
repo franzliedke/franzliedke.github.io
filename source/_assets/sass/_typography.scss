@@ -71,7 +71,7 @@ article {
     border: 0 solid #f0f0f0;
     border-width: 1px 0;
 
-    @include media(1120px) {
+    @media screen and (min-width: 1120px) {
       margin-left: -100px;
       margin-right: -100px;
       padding-left: 110px;

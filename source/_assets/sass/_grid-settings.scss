@@ -1,3 +1,8 @@
+$neat-grid: (
+  columns: 12,
+  gutter: 20px,
+);
+
 $sm: new-breakpoint(min-width 600px);
 $md: new-breakpoint(min-width 960px);
 $lg: new-breakpoint(min-width 1200px);

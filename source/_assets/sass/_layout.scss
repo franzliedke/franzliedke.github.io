@@ -30,7 +30,7 @@ header {
     display: none;
   }
 
-  @include media(800px) {
+  @media screen and (min-width: 800px) {
     position: fixed;
     width: $sidebar-width;
 
@@ -84,7 +84,7 @@ main {
   padding: $base-rhythm .5 * $base-rhythm;
   max-width: 730px;
 
-  @include media(800px) {
+  @media screen and (min-width: 800px) {
     margin-left: $sidebar-width + 15px;
   }
 }
