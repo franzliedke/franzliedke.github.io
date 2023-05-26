@@ -1,0 +1,51 @@
+name: Continuous Deployment
+on:
+  push:
+    branches:
+    - source
+  workflow_dispatch:
+
+jobs:
+  asset_deps:
+    name: Install asset dependencies
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - run: |
+        npm ci
+        npm run production
+
+  php_deps:
+    name: Install PHP dependencies
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - id: composer-cache
+      uses: actions/cache@v3
+      with:
+        path: vendor
+        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-php-
+    - run: composer install --prefer-dist --no-progress
+  
+  build:
+    name: Build static pages
+    runs-on: ubuntu-latest
+    needs: [asset_deps, php_deps]
+    steps:
+    - run: php vendor/bin/jigsaw build --pretty=false production
+
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+    - id: deployment
+      uses: actions/deploy-pages@v2
