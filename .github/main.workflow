@@ -1,5 +1,5 @@
 workflow "Continuous Deployment" {
-  on = "push"
+  on = ["push", "workflow_dispatch"]
   resolves = ["Build static pages", "Deploy to GitHub Pages"]
 }
 
